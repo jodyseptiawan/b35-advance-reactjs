@@ -3,11 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
-import SignIn from "./pages/SignIn";
 import DetailUser from "./pages/DetailUser";
-// import component here
+
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -28,9 +29,13 @@ function App() {
         </nav>
       </div>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/signin" element={<SignIn />} />
-        {/* change route for page about, profile, and user:id to private route */}
+        <Route path="/" element={<Home />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/user/:id" element={<DetailUser />} />
+        </Route>
       </Routes>
     </Router>
   );

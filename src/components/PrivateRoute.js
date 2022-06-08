@@ -1,4 +1,8 @@
-// import necessary utility from rrd
+import {Outlet, Navigate} from 'react-router-dom'
 
+export default function PrivateRoute() {
 
-// create component here
+    const isLogin = false;
+
+  return isLogin == true ? <Outlet /> : <Navigate to="/signin" /> ;
+}
