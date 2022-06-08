@@ -1,5 +1,17 @@
-// import package for property types
+import PropTypes from 'prop-types'
 
-// create component here
+export default function DetailAbout(props) {
+  return (
+    <div>
+        <h1>Title: {props.title}</h1>
+        <p>Summary: {props.summary}</p>
+        <p>Total guest: {props.total}</p>
+    </div>
+  )
+}
 
-// define property type for this component here
+DetailAbout.propTypes = {
+    title: PropTypes.string,
+    summary: PropTypes.string.isRequired,
+    total: PropTypes.number
+}
