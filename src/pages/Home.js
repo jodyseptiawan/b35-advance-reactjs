@@ -1,13 +1,25 @@
 // import necessary react-bootstrap component 
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 
 // import hooks from react-router-dom here
+import {useNavigate} from 'react-router-dom'
 
 function Home() {
 
   // call that hooks here and store to variable
+  const navigate = useNavigate();
 
   // create function here for handle push to another pages
+  const handleNavigateToSignIn = () => {
+
+    // Anothoer Process
+
+    navigate('/signin')
+    
+    // setTimeout(()=>{
+    //   navigate('/signin')
+    // },3000)
+  }
 
   return (
     <Container className="text-center">
@@ -22,7 +34,7 @@ function Home() {
         parturient montes, nascetur ridiculus mus. Donec et maximus tellus, sit
         amet hendrerit augue.
       </p>
-      {/* code element here */}
+      <Button onClick={handleNavigateToSignIn}>Click to SignIn</Button>
     </Container>
   );
 }
