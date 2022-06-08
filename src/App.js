@@ -6,7 +6,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
-// import component here
+import DetailUser from "./pages/DetailUser";
+import User from "./pages/User";
+import UserAnother from "./pages/UserAnother";
+
 
 function App() {
   return (
@@ -30,11 +33,13 @@ function App() {
       {/* define Route and component that will 
       render if the URL match by using Routes */}
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/profile" element={<Profile />} />
-        <Route exact path="/signin" element={<SignIn />} />
-        {/* define new route */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/user/another" element={<UserAnother />} />
+        <Route path="/user/:id" element={<DetailUser />} />
       </Routes>
     </Router>
   );
