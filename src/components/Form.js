@@ -1,4 +1,5 @@
 // import React Bootstrap components here
+import { Form, Col, Button } from "react-bootstrap";
 
 // import css modules
 import cssModules from "./Form.module.css";
@@ -28,7 +29,7 @@ const styles = {
 };
 
 
-function Form() {
+function FormComponent() {
   return (
     <div>
       <form style={styles.form}>
@@ -63,10 +64,21 @@ function Form() {
             <option>Female</option>
           </select>
         </div>
-        {/* code here */}
+        <Form.Row>
+          <Form.Group as={Col} md="6">
+            <Form.Label>City</Form.Label>
+            <Form.Control type="text" placeholder="City"></Form.Control>
+          </Form.Group>
+          <Form.Group  as={Col} md="6">
+            <Form.Label>State</Form.Label>
+            <Form.Control type="text" placeholder="State"></Form.Control>
+          </Form.Group>
+        </Form.Row>
+        <button className="btn btn-secondary w-100">Cancel</button>
+        <Button variant="success" className="w-100 mt-2">Submit</Button>
       </form>
     </div>
   )
 }
 
-export default Form
+export default FormComponent
